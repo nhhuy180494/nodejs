@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css">
+    <script src="/javascripts/jquery.js"></script>
+</head>
+
+<body>
+    <input type="text" id="key">
+    <button onclick="pageReady()"></button>
+    <div class="videos">
+        <div>
+            <video id="localVideo" autoplay muted playsinline></video>
+        </div>
+    </div>
+
+    <br />
+    <div id="connections"></div>
+
+    <script src="socket.io/socket.io.js"></script>
+    <script src="/javascripts/index.js"></script>
+
+    <script type="text/javascript">
+        // pageReady();
+    </script>
+
+</body>
+
+</html>
