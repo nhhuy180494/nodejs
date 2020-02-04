@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="/stylesheets/libs/login.css">
+
+<div class="signup-form">
+    <form id="login-form" action="/account/login" method="post">
+        <h2>Login</h2>
+        <p class="hint-text">Login with your account.</p>
+        <div class="form-group">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required.">
+            <span class="field-validation-valid" data-valmsg-for="email" data-valmsg-replace="true"></span>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password" data-val="true" data-val-required="The Password field is required.">
+            <span class="field-validation-valid" data-valmsg-for="password" data-valmsg-replace="true"></span>
+        </div>
+        <div class="form-group">
+            <button type="button" id="btn-login" class="btn btn-success btn-lg btn-block">Login Now</button>
+        </div>
+        <div class="form-group">
+            Or login with social account
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-lg btn-block fb"><i class="fa fa-facebook fa-fw "></i> Login with Facebook</button>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-lg btn-block google"><i class="fa fa-google fa-fw"></i> Login with Google+</button>
+        </div>
+    </form>
+    <div class="text-center">If you do not already have an account? <a href="/account/register.html">Register</a></div>
+</div>
+
+<script type="text/javascript">
+    $('#btn-login').click(function() {
+        var val = $('#login-form').valid();
+        if (val) {
+            $('#login-form').submit();
+        }
+    })
+
+    $('#login-form').submit(function(e) {
+        var data = {
+            email: $('#email').val(),
+            password: $('#password').val()
+        }
+
+        $.ajax({
+            url: domain + "account/login",
+            type: 'POST',
+            cache: false,
+            data: data,
+            success: function(result) {
+                if (result.result) {
+                    window.location.href = domain;
+                } else {
+                    alert("Đăng nhập thất bại")
+                }
+            },
+            error: function(response) {}
+        }).always(function() {});
+        e.preventDefault();
+    })
+</script>

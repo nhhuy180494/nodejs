@@ -1,3 +1,9 @@
+body {
+    background-image: url('/images/background.png');
+    background-repeat: repeat;
+    background-size: 100vw 100vh;
+}
+
 .videos {
     display: flex;
     flex-wrap: wrap;
@@ -9,4 +15,13 @@
 
 video {
     width: 100%;
+}
+
+.navbar {
+    border-radius: unset !important;
+}
+
+.row {
+    margin-left: unset !important;
+    margin-right: unset !important;
 }
